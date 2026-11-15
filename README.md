@@ -1,27 +1,32 @@
-# IA-27 — Descargas oficiales
+# IA-27 - Descargas oficiales
 
 Asistente virtual de escritorio **100 % local** de **Estalingrado Corp**.
 
-- Ejecuta los modelos GGUF en la computadora del usuario: **sin cuentas, sin
-  claves de API, sin servidores y sin conexión**.
+- Ejecuta los modelos GGUF en la computadora del usuario: **sin cuentas, sin claves de API, sin servidores y sin conexión**.
 - **Atenea Mini Beta** (2 B) viene incluido en el instalador.
 
-## Descargas — v1.4.0
+## Descargas - v1.4.1
 
 | Archivo | Descripción |
 |---|---|
-| [`IA-27-Setup-1.4.0.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.0/IA-27-Setup-1.4.0.exe) | Instalador para Windows (x64). |
-| [`IA-27-portable.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.0/IA-27-portable.exe) | Versión portable: corre sin instalar. |
-| [`IA-27-Setup-1.4.0.exe.blockmap`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.0/IA-27-Setup-1.4.0.exe.blockmap) | Datos de actualización automática. |
+| [`IA-27-Setup-1.4.1.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.1/IA-27-Setup-1.4.1.exe) | Instalador para Windows (x64). |
+| [`IA-27-portable.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.1/IA-27-portable.exe) | Versión portable: corre sin instalar. |
+| [`IA-27-Setup-1.4.1.exe.blockmap`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.1/IA-27-Setup-1.4.1.exe.blockmap) | Datos de actualización automática. |
+
+### Novedades de v1.4.1
+
+- Modo API (endpoint compatible con OpenAI: NVIDIA NIM, OpenAI, Ollama, LM Studio): ya no se queda pensando en silencio; muestra el error del proveedor y el razonamiento del modelo en vivo.
+- Nuevo botón **Probar conexión** en Ajustes.
+- Los emojis de la interfaz se sustituyen por **iconos SVG de Lucide** (trazo, licencia MIT, sin dependencias ni peso extra) en botones y chips de herramientas. Los botones quedan solo con icono e incluyen tooltip accesible (`title` + `aria-label`).
 
 ### SHA256
 
 ```
-IA-27-Setup-1.4.0.exe
-  07f1dd597a587ee7a5e74c89d006478a3fa31e5f71f0457164e82b9ef2b50999
+IA-27-Setup-1.4.1.exe
+  13a1898e4aafc9290759a5d0bb6bf524cca86f6a7269b9efdaac3d9c59455444
 
 IA-27-portable.exe
-  b90e658526b9421b292d849f43fa7b4a30e0f1a17a3e6ed8413ed2a65432bec2
+  ab05d7d56d54f67be14e91cfc97bc6aa887df6fa0f5747701d8d645e5a2bf5eb
 ```
 
 ## Requisitos
