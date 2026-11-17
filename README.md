@@ -5,27 +5,28 @@ Asistente virtual de escritorio **100 % local** de **Estalingrado Corp**.
 - Ejecuta los modelos GGUF en la computadora del usuario: **sin cuentas, sin claves de API, sin servidores y sin conexión**.
 - **Atenea Mini Beta** (2 B) viene incluido en el instalador.
 
-## Descargas - v1.4.2
+## Descargas - v1.4.3
 
 | Archivo | Descripción |
 |---|---|
-| [`IA-27-Setup-1.4.2.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.2/IA-27-Setup-1.4.2.exe) | Instalador para Windows (x64). |
-| [`IA-27-portable.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.2/IA-27-portable.exe) | Versión portable: corre sin instalar. |
-| [`IA-27-Setup-1.4.2.exe.blockmap`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.2/IA-27-Setup-1.4.2.exe.blockmap) | Datos de actualización automática. |
+| [`IA-27-Setup-1.4.3.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.3/IA-27-Setup-1.4.3.exe) | Instalador para Windows (x64). |
+| [`IA-27-portable.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.3/IA-27-portable.exe) | Versión portable: corre sin instalar. |
+| [`IA-27-Setup-1.4.3.exe.blockmap`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.3/IA-27-Setup-1.4.3.exe.blockmap) | Datos de actualización automática. |
 
-### Novedades de v1.4.2
+### Novedades de v1.4.3
 
-- **El navegador Chromium integrado pasa a ser el modo web por defecto del modelo.** Antes, para leer una página el modelo necesitaba dos tool-calls (abrir y leer) y el presupuesto por mensaje es de dos: el prefetch de búsqueda se llevaba uno y la lectura se quedaba sin ejecutar. Ahora `navegador_navegar` abre la URL y devuelve el contenido renderizado en una sola llamada, el prefetch tiene presupuesto propio, la política del navegador viaja en el prompt y el Chromium queda disponible en todas las especialidades.
-- Sigue todo lo de la v1.4.1: modo API sin silencio (razonamiento visible + **Probar conexión**) e **iconos SVG de Lucide** en botones y chips de herramientas.
+- **El modelo ya interactúa con la página, no solo la lee.** El navegador Chromium integrado suma 5 primitivas: hacer clic, escribir en un campo, esperar a que aparezca un elemento, desplazarse y extraer el texto de un elemento puntual (el precio de un producto, la celda de una tabla). El modelo elige el elemento por **índice** (el número que vio en la lista de elementos interactivos), no por selectores inventados.
+- **Seguro por diseño:** escribir siempre pide confirmación y nunca completa contraseñas; hacer clic pide confirmación solo si la acción es irreversible (borrar, comprar, publicar, pagar…); el panel del navegador muestra la misma vista que el modelo.
+- Sigue todo lo de la v1.4.2: el navegador Chromium integrado como modo web por defecto, modo API sin silencio con **Probar conexión** e **iconos SVG de Lucide** en botones y chips de herramientas.
 
 ### SHA256
 
 ```
-IA-27-Setup-1.4.2.exe
-  ea869301e6175654e5874ccfc9e44d8d883612412d9b6680f6f61b2147e1092b
+IA-27-Setup-1.4.3.exe
+  4300efafb035551ce834fe9ee825debe0e4f4aa25cd706f65e66aedc64bdbf78
 
 IA-27-portable.exe
-  476f7bd35804d7dbd4664faf5e8cb74ffc8fedf52277adc81d09525ddd16647c
+  6c705c8fec55367ac70badf99c6f9a2e55c0e595da5a345ec38b494521aa2aab
 ```
 
 ## Requisitos
