@@ -5,31 +5,45 @@ Asistente virtual de escritorio **100 % local** de **Estalingrado Corp**.
 - Ejecuta los modelos GGUF en la computadora del usuario: **sin cuentas, sin claves de API, sin servidores y sin conexión**.
 - **Atenea Mini Beta** (2 B) viene incluido en el instalador.
 
-## Descargas - v1.4.4
+## Descargas - v1.4.5
 
 | Archivo | Descripción |
 |---|---|
-| [`IA-27-Setup-1.4.4.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.4/IA-27-Setup-1.4.4.exe) | Instalador para Windows (x64). |
-| [`IA-27-portable.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.4/IA-27-portable.exe) | Versión portable: corre sin instalar. |
-| [`IA-27-Setup-1.4.4.exe.blockmap`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.4/IA-27-Setup-1.4.4.exe.blockmap) | Datos de actualización automática. |
+| [`IA-27-Setup-1.4.5.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.5/IA-27-Setup-1.4.5.exe) | Instalador para Windows (x64). |
+| [`IA-27-portable.exe`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.5/IA-27-portable.exe) | Versión portable: corre sin instalar. |
+| [`IA-27-Setup-1.4.5.exe.blockmap`](https://github.com/nicotips27/IA27-downloads/releases/download/v1.4.5/IA-27-Setup-1.4.5.exe.blockmap) | Datos de actualización automática. |
 
-### Novedades de v1.4.4
+### Novedades de v1.4.5
 
-- **El navegador deja de ser una caja negra.** Cuatro redes de seguridad nuevas:
-  - **Techo de espera por acción.** Si una página se cuelga, el turno ya no queda "pensando" para siempre: el modelo recibe un mensaje que dice qué pasó y qué puede hacer.
-  - **El texto de la página es evidencia no confiable.** Llega marcado como contenido externo: una web que intente darle instrucciones al modelo no puede pasar por órdenes del operador.
-  - **Permisos acotados.** El Chromium del agente tiene una lista blanca mínima: cámara, micrófono, geolocalización, notificaciones y lectura del portapapeles quedan denegados.
-  - **Panel automático sin robar el foco.** Cuando el modelo navega o interactúa, el panel del navegador se abre para que el operador vea lo que pasa. Se apaga en Ajustes, y si el operador lo cierra, no se vuelve a abrir solo.
-- Sigue todo lo de la v1.4.3: las 5 primitivas de interacción con la página (clic, escribir, esperar, desplazarse, extraer), el modelo eligiendo el elemento por **índice**, confirmación antes de escribir o de hacer clic irreversible, y nunca escribiendo contraseñas.
+- **Se arregla el error que mataba las respuestas web.** Si le pedías algo que el
+  router clasificaba como búsqueda o trabajo web (por ejemplo "buscá en la web el
+  precio del dólar"), la app respondía `⚠ Assignment to constant variable.` y el
+  modelo no contestaba nada. No era un problema del modelo: era un error de
+  JavaScript en el motor que moría antes de generar.
+  - **Por qué pasaba:** el presupuesto de herramientas se declaraba como
+    constante y en la línea siguiente se "ajustaba" a 4 en el dominio web. Una
+    constante no se puede reasignar, así que el turno moría en el acto. Solo
+    pasaba en el dominio web y sin carpeta de trabajo activa, por eso pasó
+    desapercibido. Venía de la v1.4.3 y afectaba también a la v1.4.4.
+  - **Qué cambió:** el presupuesto se calcula de una sola vez (4 llamadas en el
+    dominio web, 2 fuera de él, 8 con carpeta de trabajo) y ya no se toca
+    después. Se agregó una prueba de regresión y un verificador
+    (`npm run check:const`) que detecta cualquier reasignación de una constante.
+- Sigue todo lo de la v1.4.4: el navegador Chromium integrado deja de ser una
+  caja negra (techo de espera por acción, evidencia externa no confiable,
+  permisos acotados y panel automático sin robar el foco), las 5 primitivas de
+  interacción con la página (clic, escribir, desplazar, esperar y extraer), el
+  modelo eligiendo el elemento por **índice**, confirmación antes de escribir o
+  de hacer clic irreversible, y nunca escribiendo contraseñas.
 
 ### SHA256
 
 ```
-IA-27-Setup-1.4.4.exe
-  b7dcb4345b76ac99d50fb8ef956ae44255604748c4aa4a53f8821da4fd9057d2
+IA-27-Setup-1.4.5.exe
+3f63bb0940b37d644603d223d2d070b83bca7fa00d3eb228b4f2e44996a9b878
 
 IA-27-portable.exe
-  517c6529143e166d5a806d6a4dacc4317db6c72e87089a8b3bc159b434279a06
+49b02bbfd1cf09cb53de654d39ef49237fac9414461cc712745e3cebb455f1ae
 ```
 
 ## Requisitos
